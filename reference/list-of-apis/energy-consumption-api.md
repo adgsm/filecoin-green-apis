@@ -8,7 +8,7 @@ description: >-
 
 ## Data model
 
-Data model is listing all available data models (e.g. Energy intensity, Energy used to seal data, Energy used to store data, etc.).
+Data model end point is listing all available data models (e.g. Energy intensity, Energy used to seal data, Energy used to store data, etc.).
 
 {% swagger method="get" path="" baseUrl="https://api.filgreen.d.interplanetary.one/models/list" summary="List available API data models" %}
 {% swagger-description %}
@@ -81,7 +81,7 @@ Data model is listing all available data models (e.g. Energy intensity, Energy u
 
 ### Daily, weekly and monthly data granulation
 
-This endpoint provides data for selected data model on grouped on a daily, weekly or monthly level.
+This endpoint provides data for selected data model grouped on a daily, weekly or monthly scale.
 
 {% swagger method="get" path="" baseUrl="https://api.filgreen.d.interplanetary.one/models/model" summary="Energy consumption grouped on a daily, weekly and monthly scale for selected model, date range and Storage Provider" %}
 {% swagger-description %}
