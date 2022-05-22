@@ -83,7 +83,7 @@ Data model is listing all available data models (e.g. Energy intensity, Energy u
 
 This endpoint provides data for selected data model on grouped on a daily, weekly or monthly level.
 
-{% swagger method="get" path="" baseUrl="https://api.filgreen.d.interplanetary.one/models/model" summary="Daily, weekly and monthly energy consumption for selected model, date range and Storage Provider" %}
+{% swagger method="get" path="" baseUrl="https://api.filgreen.d.interplanetary.one/models/model" summary="Energy consumption grouped on a daily, weekly and monthly scale for selected model, date range and Storage Provider" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -113,6 +113,10 @@ Data granulation. Possible values are: "day", "week" or "month".
 
 
 If not provided "day" is considered as default value.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="miner" type="String" %}
+Miner Id (e.g. f01234). If not listed data is provided without filtering per miner Id.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="start" type="Date / String" %}
