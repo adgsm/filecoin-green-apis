@@ -8,7 +8,7 @@ description: >-
 
 ## Data model
 
-Data model is listing all available data models (e.g. Energy intensity, Energy used to seal data, Energy used to store data, etc.).
+Data model end point is listing all available data models (e.g. Energy intensity, Energy used to seal data, Energy used to store data, etc.).
 
 {% swagger method="get" path="" baseUrl="https://api.filgreen.d.interplanetary.one/models/list" summary="List available API data models" %}
 {% swagger-description %}
@@ -81,7 +81,7 @@ Data model is listing all available data models (e.g. Energy intensity, Energy u
 
 ### Daily, weekly and monthly data granulation
 
-This endpoint provides data for selected data model on grouped on a daily, weekly or monthly level.
+This endpoint provides data for selected data model grouped on a daily, weekly or monthly scale.
 
 {% swagger method="get" path="" baseUrl="https://api.filgreen.d.interplanetary.one/models/model" summary="Energy consumption grouped on a daily, weekly and monthly scale for selected model, date range and Storage Provider" %}
 {% swagger-description %}
@@ -137,14 +137,6 @@ ISO 8601 formatted end date.
 If not provided data points are listed up to the most recent measurement.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="offset" type="Integer" %}
-Number of data points to skip from the beginning of the record set. Default 0.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="limit" type="Integer" %}
-Maximal number of data points to be listed. Default 10000.
-{% endswagger-parameter %}
-
 {% swagger-response status="200: OK" description="JSON response" %}
 ```javascript
 {
@@ -197,6 +189,127 @@ Maximal number of data points to be listed. Default 10000.
                 },
                 {
                     "value": "471916.373850792235",
+                    "start_date": "2022-04-30T00:00:00.000Z",
+                    "end_date": "2022-04-30T23:59:59.999Z"
+                }
+            ]
+        }
+    ]
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+### All data points
+
+This endpoint provides all measured data points for selected data model.
+
+{% swagger method="get" path="" baseUrl="https://api.filgreen.d.interplanetary.one/models/export" summary="Energy consumption" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="query" name="id" type="Integer" required="true" %}
+Id of the data model.
+
+\
+
+
+(either "id" or associated "code_name" query parameter have to be provided)
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="code_name" required="true" %}
+Code name of the data model.
+
+\
+
+
+(either "id" or associated "code_name" query parameter have to be provided)
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="miner" type="String" %}
+Miner Id (e.g. f01234). If not listed data is provided without filtering per miner Id.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="start" type="Date / String" %}
+ISO 8601 formatted start date.
+
+\
+
+
+If not provided data points are listed from the epoch 0.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="end" type="Date / String" %}
+ISO 8601 formatted end date.
+
+\
+
+
+If not provided data points are listed up to the most recent measurement.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="offset" type="Integer" %}
+Number of data points to skip from the beginning of the record set. Default 0.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="limit" type="Integer" %}
+Maximal number of data points to be listed. Default 10000.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="JSON response" %}
+```javascript
+{
+    "id": "5",
+    "code_name": "EnergyIntensityModel",
+    "name": "Energy Intensity",
+    "category": "energy",
+    "x": "time",
+    "y": "MW_per_EiB",
+    "version": 0,
+    "filter": "day",
+    "miner": "f01419959",
+    "data": [
+        {
+            "title": "Lower bound",
+            "data": [
+                {
+                    "value": "1.227484473327616000000000000",
+                    "start_date": "2022-04-29T00:00:00.000Z",
+                    "end_date": "2022-04-29T23:59:59.999Z"
+                },
+                {
+                    "value": "1.227484473327616000000000000",
+                    "start_date": "2022-04-30T00:00:00.000Z",
+                    "end_date": "2022-04-30T23:59:59.999Z"
+                }
+            ]
+        },
+        {
+            "title": "Estimate",
+            "data": [
+                {
+                    "value": "5.430217346646016000000000000",
+                    "start_date": "2022-04-29T00:00:00.000Z",
+                    "end_date": "2022-04-29T23:59:59.999Z"
+                },
+                {
+                    "value": "5.430217346646016000000000000",
+                    "start_date": "2022-04-30T00:00:00.000Z",
+                    "end_date": "2022-04-30T23:59:59.999Z"
+                }
+            ]
+        },
+        {
+            "title": "Upper bound",
+            "data": [
+                {
+                    "value": "18.023603698139136000000000000",
+                    "start_date": "2022-04-29T00:00:00.000Z",
+                    "end_date": "2022-04-29T23:59:59.999Z"
+                },
+                {
+                    "value": "18.023603698139136000000000000",
                     "start_date": "2022-04-30T00:00:00.000Z",
                     "end_date": "2022-04-30T23:59:59.999Z"
                 }
