@@ -79,9 +79,9 @@ Data model end point is listing all available data models (e.g. Energy intensity
 {% endswagger-response %}
 {% endswagger %}
 
-### Daily, weekly and monthly data granulation
+### Energy consumption: Daily, weekly and monthly data granulation
 
-This endpoint provides data for selected data model grouped on a daily, weekly or monthly scale.
+This endpoint provides energy consumption data for selected data model grouped on a daily, weekly or monthly scale.
 
 {% swagger method="get" path="" baseUrl="https://api.filgreen.d.interplanetary.one/models/model" summary="Energy consumption grouped on a daily, weekly and monthly scale for selected model, date range and Storage Provider" %}
 {% swagger-description %}
@@ -200,9 +200,9 @@ If not provided data points are listed up to the most recent measurement.
 {% endswagger-response %}
 {% endswagger %}
 
-### All data points
+### Energy consumption: All data points
 
-This endpoint provides all measured data points for selected data model.
+This endpoint provides all measured energy consumption data points for selected data model.
 
 {% swagger method="get" path="" baseUrl="https://api.filgreen.d.interplanetary.one/models/export" summary="Energy consumption" %}
 {% swagger-description %}
