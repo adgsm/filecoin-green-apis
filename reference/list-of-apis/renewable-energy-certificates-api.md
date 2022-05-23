@@ -6,6 +6,10 @@ description: >-
 
 # 📈 Renewable Energy Certificates API
 
+{% hint style="info" %}
+**Good to know:** Comprehensive Open API documentation for all API methods is available [here](https://proofs-api.zerolabs.green/swagger/). Please note that you will need and API key for all endpoints that are covered in swagger but not listed here below.
+{% endhint %}
+
 ## Filecoin Storage Providers
 
 Listing all Filecoin Storage Providers who has purchased and consumed RECs.
